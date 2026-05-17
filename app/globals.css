@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy:        #0e1f38;
+  --navy-mid:    #152b4a;
+  --gold:        #b8922a;
+  --gold-light:  #d4a83a;
+  --gold-pale:   rgba(184, 146, 42, 0.12);
+  --white:       #ffffff;
+  --off-white:   #f5f3ef;
+  --muted:       #8a9bb0;
+  --text:        #e8edf3;
+  --text-dim:    #6b7e94;
+  --border:      rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(184, 146, 42, 0.3);
+  --green:       #2a7a4a;
+  --green-pale:  rgba(42, 122, 74, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--navy);
+}
+
+body {
+  background-color: var(--navy);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography roles ──────────────────────────────── */
+.font-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-label {
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.font-label-dim {
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+/* ─── Open-layer content fade ───────────────────────── */
+.content-fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent 0%, var(--navy) 100%);
+  pointer-events: none;
+}
+
+/* ─── Status badges ─────────────────────────────────── */
+.badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 20px;
+  padding: 3px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
+
+.badge-live {
+  background: var(--green-pale);
+  color: #4db87a;
+  border: 1px solid rgba(42, 122, 74, 0.35);
+}
+
+.badge-partial {
+  background: var(--gold-pale);
+  color: var(--gold-light);
+  border: 1px solid var(--border-gold);
+}
+
+.badge-soon {
+  background: rgba(138, 155, 176, 0.1);
+  color: var(--muted);
+  border: 1px solid rgba(138, 155, 176, 0.2);
+}
+
+/* ─── Form elements ─────────────────────────────────── */
+.field {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  transition: border-color 0.15s;
+  outline: none;
+  appearance: none;
+}
+
+.field::placeholder {
+  color: var(--text-dim);
+}
+
+.field:focus {
+  border-color: var(--border-gold);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.field option {
+  background: var(--navy-mid);
+  color: var(--text);
+}
+
+/* ─── Buttons ───────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 24px;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 24px;
+  background: transparent;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  border-color: var(--border-gold);
+  color: var(--gold-light);
+}
+
+.btn-ghost:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── Prose overrides for section content ───────────── */
+.section-prose h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-prose h2:first-child {
+  margin-top: 0;
+}
+
+.section-prose p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.section-prose strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ─── Dividers ──────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ─── Card base ─────────────────────────────────────── */
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.card:hover {
+  background: rgba(21, 43, 74, 0.8);
+  border-color: var(--border-gold);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
